@@ -5,168 +5,233 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your Name | University of Michigan</title>
   <style>
+    :root {
+      --text: #30343a;
+      --muted: #70757d;
+      --link: #315f83;
+      --line: #e9eaec;
+      --soft: #f5f6f7;
+    }
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 75px; }
+    html { scroll-behavior: smooth; scroll-padding-top: 70px; }
     body {
       margin: 0;
-      color: #3f4145;
-      background: white;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 15px;
-      line-height: 1.55;
+      background: #fff;
+      color: var(--text);
+      font: 15px/1.65 Arial, Helvetica, sans-serif;
     }
-    a { color: #245b85; text-decoration: none; }
+    a { color: var(--link); text-decoration: none; }
     a:hover { text-decoration: underline; }
-    header {
+
+    nav {
       position: sticky;
       top: 0;
       z-index: 10;
-      background: rgba(255,255,255,.96);
-      border-bottom: 1px solid #eee;
-    }
-    nav {
-      max-width: 1250px;
-      height: 58px;
-      margin: auto;
-      padding: 0 18px;
       display: flex;
-      align-items: center;
-      gap: 38px;
+      justify-content: center;
+      gap: 32px;
+      padding: 17px 20px;
       overflow-x: auto;
       white-space: nowrap;
+      background: rgba(255,255,255,.96);
+      border-bottom: 1px solid var(--line);
     }
-    nav a { color: #62666c; font-size: 14px; }
-    .page {
-      max-width: 1250px;
-      margin: 34px auto 70px;
-      padding: 0 18px;
-      display: grid;
-      grid-template-columns: 220px minmax(0, 1fr);
-      gap: 45px;
+    nav a { color: #5d6269; font-size: 13px; }
+
+    .profile {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 58px 24px 44px;
+      text-align: center;
     }
-    aside { position: sticky; top: 92px; align-self: start; }
+    .photo-placeholder,
     .profile-photo {
-      width: 160px;
-      height: 160px;
-      object-fit: cover;
+      width: 126px;
+      height: 126px;
+      margin: 0 auto 18px;
       border-radius: 50%;
-      border: 5px solid #f5f5f5;
-      background: #e8edf2;
+      border: 4px solid var(--soft);
     }
     .photo-placeholder {
-      width: 160px;
-      height: 160px;
       display: grid;
       place-items: center;
-      border-radius: 50%;
-      border: 5px solid #f5f5f5;
-      background: #e8edf2;
-      color: #315b7c;
-      font-size: 40px;
+      background: #e8edf1;
+      color: #315f83;
+      font-size: 34px;
       font-weight: bold;
     }
-    aside h2 { margin: 14px 0 2px; color: #34373b; font-size: 23px; }
-    aside p { margin: 4px 0; }
-    .role { margin-top: 25px; }
-    .contact-list { list-style: none; padding: 0; margin: 15px 0; }
-    .contact-list li { margin: 11px 0; }
-    .contact-list a { color: #4b4e52; }
-    main { min-width: 0; }
-    section { margin-bottom: 30px; }
-    section h1 {
-      margin: 0 0 10px;
-      padding-bottom: 7px;
-      border-bottom: 1px solid #eee;
-      color: #383b40;
-      font-size: 22px;
-      line-height: 1.3;
+    .profile-photo { display: block; object-fit: cover; }
+    .profile h1 { margin: 0; font-size: 28px; line-height: 1.3; }
+    .profile .school { margin: 6px 0 0; color: var(--muted); }
+    .profile .role { margin: 2px 0 22px; color: var(--muted); }
+    .profile-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px 20px;
+      font-size: 14px;
     }
-    section h3 { margin: 17px 0 5px; font-size: 16px; }
-    section p { margin: 0 0 8px; }
-    section li { margin: 7px 0; }
-    section ul, section ol { margin-top: 8px; padding-left: 29px; }
-    em { color: #555b62; }
-    @media (max-width: 720px) {
-      nav { gap: 24px; }
-      .page { grid-template-columns: 1fr; gap: 28px; margin-top: 24px; }
-      aside { position: static; text-align: center; }
-      .profile-photo, .photo-placeholder { width: 130px; height: 130px; margin: auto; }
-      .contact-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 18px; }
-      .contact-list li { margin: 3px 0; }
+    .profile-links a { color: #4d535a; }
+
+    main { width: min(860px, calc(100% - 40px)); margin: 0 auto 80px; }
+    section { padding: 35px 0; border-top: 1px solid var(--line); }
+    .section-head {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 24px;
+      margin-bottom: 20px;
+    }
+    .section-number {
+      color: #969ba1;
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    h2 { margin: 0; font-size: 22px; line-height: 1.3; }
+    .section-body { margin-left: 154px; }
+    .section-body > :first-child { margin-top: 0; }
+    .section-body p { margin: 0 0 10px; }
+
+    .entry {
+      display: grid;
+      grid-template-columns: 105px 1fr;
+      gap: 22px;
+      padding: 13px 0;
+    }
+    .date { color: var(--muted); font-size: 13px; font-style: italic; }
+    .entry p { margin: 0; }
+    .entry strong { font-weight: 600; }
+
+    .publication-list { margin: 0; padding-left: 20px; }
+    .publication-list li { margin: 0 0 15px; padding-left: 5px; }
+    .tag {
+      display: inline-block;
+      margin-left: 6px;
+      padding: 1px 7px;
+      color: #666c73;
+      background: var(--soft);
+      border-radius: 3px;
+      font-size: 11px;
+      vertical-align: 1px;
+    }
+    footer {
+      padding-top: 28px;
+      border-top: 1px solid var(--line);
+      color: #92969b;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    @media (max-width: 640px) {
+      nav { justify-content: flex-start; gap: 24px; }
+      .profile { padding-top: 42px; }
+      .section-head { grid-template-columns: 1fr; gap: 5px; }
+      .section-body { margin-left: 0; }
+      .entry { grid-template-columns: 1fr; gap: 2px; padding: 10px 0; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="#about">Homepage</a>
-      <a href="#about">About Me</a>
-      <a href="#education">Education</a>
-      <a href="#news">News</a>
-      <a href="#publications">Publications</a>
-      <a href="#honors">Honors</a>
-    </nav>
+  <nav aria-label="Main navigation">
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#news">News</a>
+    <a href="#publications">Publications</a>
+    <a href="#honors">Honors</a>
+  </nav>
+
+  <header class="profile">
+    <!-- 有照片后，删除下一行并启用 img 那一行 -->
+    <div class="photo-placeholder">YN</div>
+    <!-- <img class="profile-photo" src="profile.jpg" alt="Your Name"> -->
+    <h1>Your Name</h1>
+    <p class="school">University of Michigan</p>
+    <p class="role">Student · Researcher · Ann Arbor, Michigan</p>
+    <div class="profile-links">
+      <a href="mailto:yourname@umich.edu">Email</a>
+      <a href="https://github.com/YOUR-USERNAME">GitHub</a>
+      <a href="https://www.linkedin.com/">LinkedIn</a>
+      <a href="https://scholar.google.com/">Google Scholar</a>
+    </div>
   </header>
 
-  <div class="page">
-    <aside>
-      <!-- 有照片后，删除下面这行并启用下一行 -->
-      <div class="photo-placeholder">YN</div>
-      <!-- <img class="profile-photo" src="profile.jpg" alt="Your Name"> -->
-
-      <h2>Your Name</h2>
-      <p>University of Michigan</p>
-      <p class="role">Student / Researcher</p>
-
-      <ul class="contact-list">
-        <li>📍 Ann Arbor, MI, USA</li>
-        <li><a href="mailto:yourname@umich.edu">✉ Email</a></li>
-        <li><a href="https://github.com/YOUR-USERNAME">⌘ GitHub</a></li>
-        <li><a href="https://www.linkedin.com/">in LinkedIn</a></li>
-        <li><a href="https://scholar.google.com/">🎓 Google Scholar</a></li>
-      </ul>
-    </aside>
-
-    <main>
-      <section id="about">
-        <h1>About Me</h1>
-        <p>Hello! I’m <strong>Your Name</strong>, a student at the University of Michigan. I am interested in your research area and currently work on projects related to your topic.</p>
+  <main>
+    <section id="about">
+      <div class="section-head">
+        <span class="section-number">01 · Profile</span>
+        <h2>About Me</h2>
+      </div>
+      <div class="section-body">
+        <p>Hello! I’m <strong>Your Name</strong>, a student at the University of Michigan. My interests include your research area and the questions you are currently exploring.</p>
         <p>Use this paragraph to introduce your background, research interests, current lab or advisor, and the kind of work you hope to pursue.</p>
-      </section>
+      </div>
+    </section>
 
-      <section id="education">
-        <h1>📖 Education</h1>
-        <ul>
-          <li><em>2024 – Present</em>, <strong>Your Degree</strong>, University of Michigan</li>
-          <li><em>2020 – 2024</em>, <strong>Previous Degree</strong>, Previous University</li>
-        </ul>
-      </section>
+    <section id="education">
+      <div class="section-head">
+        <span class="section-number">02 · Background</span>
+        <h2>Education</h2>
+      </div>
+      <div class="section-body">
+        <div class="entry">
+          <span class="date">2024 – Present</span>
+          <p><strong>Your Degree</strong><br>University of Michigan</p>
+        </div>
+        <div class="entry">
+          <span class="date">2020 – 2024</span>
+          <p><strong>Previous Degree</strong><br>Previous University</p>
+        </div>
+      </div>
+    </section>
 
-      <section id="news">
-        <h1>🔥 News</h1>
-        <ul>
-          <li><em>2026.08:</em> Add your latest research, presentation, award, or milestone here.</li>
-          <li><em>2026.05:</em> Add another recent update here.</li>
-        </ul>
-      </section>
+    <section id="news">
+      <div class="section-head">
+        <span class="section-number">03 · Updates</span>
+        <h2>Recent News</h2>
+      </div>
+      <div class="section-body">
+        <div class="entry">
+          <span class="date">August 2026</span>
+          <p>Add your latest research, presentation, award, or milestone here.</p>
+        </div>
+        <div class="entry">
+          <span class="date">May 2026</span>
+          <p>Add another recent update here.</p>
+        </div>
+      </div>
+    </section>
 
-      <section id="publications">
-        <h1>📝 Publications</h1>
-        <h3>Publications</h3>
-        <ol>
-          <li><strong>Your Name</strong>, Coauthor. <a href="#">“Title of your publication.”</a> <em>Journal or Conference</em>, 2026.</li>
-          <li>Coauthor, <strong>Your Name</strong>. <a href="#">“Another publication title.”</a> <em>Journal Name</em>, 2025.</li>
+    <section id="publications">
+      <div class="section-head">
+        <span class="section-number">04 · Research</span>
+        <h2>Publications</h2>
+      </div>
+      <div class="section-body">
+        <ol class="publication-list">
+          <li><strong>Your Name</strong>, Coauthor. <a href="#">“Title of your publication.”</a> <em>Journal or Conference</em>, 2026. <span class="tag">Paper</span></li>
+          <li>Coauthor, <strong>Your Name</strong>. <a href="#">“Another publication title.”</a> <em>Journal Name</em>, 2025. <span class="tag">Preprint</span></li>
         </ol>
-      </section>
+      </div>
+    </section>
 
-      <section id="honors">
-        <h1>🎖 Honors and Awards</h1>
-        <ul>
-          <li><em>2026</em>, Award or Scholarship Name</li>
-          <li><em>2025</em>, Honor or Competition Result</li>
-        </ul>
-      </section>
-    </main>
-  </div>
+    <section id="honors">
+      <div class="section-head">
+        <span class="section-number">05 · Recognition</span>
+        <h2>Honors and Awards</h2>
+      </div>
+      <div class="section-body">
+        <div class="entry">
+          <span class="date">2026</span>
+          <p>Award or Scholarship Name</p>
+        </div>
+        <div class="entry">
+          <span class="date">2025</span>
+          <p>Honor or Competition Result</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>Last updated August 2026 · Built with plain HTML and CSS</footer>
+  </main>
 </body>
 </html>
