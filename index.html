@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Name | University of Michigan</title>
+  <meta name="description" content="Yiyue Wang - Electrical Engineering graduate student and battery research student.">
+  <title>Yiyue Wang | Battery and Energy Systems</title>
   <style>
     :root {
       --text: #30343a;
@@ -29,7 +30,7 @@
       z-index: 10;
       display: flex;
       justify-content: center;
-      gap: 32px;
+      gap: 30px;
       padding: 17px 20px;
       overflow-x: auto;
       white-space: nowrap;
@@ -41,26 +42,23 @@
     .profile {
       max-width: 760px;
       margin: 0 auto;
-      padding: 58px 24px 44px;
+      padding: 32px 24px 26px;
       text-align: center;
     }
-    .photo-placeholder,
     .profile-photo {
+      display: block;
+      object-fit: cover;
+      object-position: center;
       width: 126px;
       height: 126px;
-      margin: 0 auto 18px;
+      margin: 0 auto 12px;
       border-radius: 50%;
       border: 4px solid var(--soft);
-    }
-    .photo-placeholder {
-      display: grid;
-      place-items: center;
       background: #e8edf1;
       color: #315f83;
       font-size: 34px;
       font-weight: bold;
     }
-    .profile-photo { display: block; object-fit: cover; }
     .profile h1 { margin: 0; font-size: 28px; line-height: 1.3; }
     .profile .school { margin: 6px 0 0; color: var(--muted); }
     .profile .role { margin: 2px 0 22px; color: var(--muted); }
@@ -73,37 +71,41 @@
     }
     .profile-links a { color: #4d535a; }
 
-    main { width: min(860px, calc(100% - 40px)); margin: 0 auto 80px; }
-    section { padding: 35px 0; border-top: 1px solid var(--line); }
-    .section-head {
+    main { width: min(860px, calc(100% - 40px)); margin: 0 auto 55px; }
+    section {
       display: grid;
-      grid-template-columns: 130px 1fr;
-      gap: 24px;
-      margin-bottom: 20px;
+      grid-template-columns: 154px minmax(0, 1fr);
+      gap: 18px;
+      padding: 24px 0;
+      border-top: 1px solid var(--line);
     }
-    .section-number {
-      color: #969ba1;
-      font-size: 12px;
-      letter-spacing: .12em;
-      text-transform: uppercase;
+    .section-head {
+      margin: 0;
     }
     h2 { margin: 0; font-size: 22px; line-height: 1.3; }
-    .section-body { margin-left: 154px; }
+    .section-body { margin-left: 0; }
     .section-body > :first-child { margin-top: 0; }
     .section-body p { margin: 0 0 10px; }
 
     .entry {
       display: grid;
-      grid-template-columns: 105px 1fr;
+      grid-template-columns: 122px 1fr;
       gap: 22px;
-      padding: 13px 0;
+      padding: 8px 0;
     }
     .date { color: var(--muted); font-size: 13px; font-style: italic; }
     .entry p { margin: 0; }
     .entry strong { font-weight: 600; }
+    .entry ul { margin: 4px 0 0; padding-left: 20px; }
+    .entry li { margin: 2px 0; }
 
-    .publication-list { margin: 0; padding-left: 20px; }
-    .publication-list li { margin: 0 0 15px; padding-left: 5px; }
+    .skill-list { margin: 0; padding: 0; list-style: none; }
+    .skill-list li { margin: 0 0 6px; }
+    .skill-list strong { font-weight: 600; }
+
+    .project-list { margin: 0; padding: 0; list-style: none; }
+    .project-list li { margin: 0 0 13px; }
+    .project-list strong { font-weight: 600; }
     .tag {
       display: inline-block;
       margin-left: 6px;
@@ -115,7 +117,7 @@
       vertical-align: 1px;
     }
     footer {
-      padding-top: 28px;
+      padding-top: 18px;
       border-top: 1px solid var(--line);
       color: #92969b;
       text-align: center;
@@ -124,10 +126,11 @@
 
     @media (max-width: 640px) {
       nav { justify-content: flex-start; gap: 24px; }
-      .profile { padding-top: 42px; }
-      .section-head { grid-template-columns: 1fr; gap: 5px; }
+      .profile { padding-top: 26px; }
+      section { display: block; }
+      .section-head { margin-bottom: 12px; }
       .section-body { margin-left: 0; }
-      .entry { grid-template-columns: 1fr; gap: 2px; padding: 10px 0; }
+      .entry { grid-template-columns: 1fr; gap: 2px; padding: 7px 0; }
     }
   </style>
 </head>
@@ -141,97 +144,98 @@
   </nav>
 
   <header class="profile">
-    <!-- 有照片后，删除下一行并启用 img 那一行 -->
-    <div class="photo-placeholder">YN</div>
-    <!-- <img class="profile-photo" src="profile.jpg" alt="Your Name"> -->
-    <h1>Your Name</h1>
+    <img class="profile-photo" src="avatar.jpg" alt="White duck swimming in green water" width="126" height="126">
+    <h1>Yiyue Wang</h1>
     <p class="school">University of Michigan</p>
-    <p class="role">Student · Researcher · Ann Arbor, Michigan</p>
+    <p class="role">M.S. Student in Electrical and Computer Engineering · Power and Energy</p>
     <div class="profile-links">
-      <a href="mailto:yourname@umich.edu">Email</a>
-      <a href="https://github.com/YOUR-USERNAME">GitHub</a>
-      <a href="https://www.linkedin.com/">LinkedIn</a>
-      <a href="https://scholar.google.com/">Google Scholar</a>
+      <a href="mailto:yiyuew@umich.edu">Email</a>
+      <a href="https://bu1ko.github.io" target="_blank" rel="noreferrer">Personal Website</a>
+      <span>Ann Arbor, Michigan</span>
     </div>
   </header>
 
   <main>
     <section id="about">
       <div class="section-head">
-        <span class="section-number">01 · Profile</span>
         <h2>About Me</h2>
       </div>
       <div class="section-body">
-        <p>Hello! I’m <strong>Your Name</strong>, a student at the University of Michigan. My interests include your research area and the questions you are currently exploring.</p>
-        <p>Use this paragraph to introduce your background, research interests, current lab or advisor, and the kind of work you hope to pursue.</p>
+        <p>Hello! I am <strong>Yiyue Wang</strong>, an M.S. student in Electrical and Computer Engineering at the University of Michigan, specializing in power and energy.</p>
+        <p>My interests include battery aging, state-of-health prediction, thermal management, electrochemical impedance analysis, dynamically reconfigurable battery systems, and data-driven modeling for energy systems.</p>
       </div>
     </section>
 
     <section id="education">
       <div class="section-head">
-        <span class="section-number">02 · Background</span>
         <h2>Education</h2>
       </div>
       <div class="section-body">
         <div class="entry">
-          <span class="date">2024 – Present</span>
-          <p><strong>Your Degree</strong><br>University of Michigan</p>
+          <span class="date">Aug 2026 – Present</span>
+          <p><strong>M.S. in Electrical and Computer Engineering</strong><br>University of Michigan, Power and Energy track<br>Ann Arbor, Michigan</p>
         </div>
         <div class="entry">
-          <span class="date">2020 – 2024</span>
-          <p><strong>Previous Degree</strong><br>Previous University</p>
+          <span class="date">Sep 2022 – Jun 2026</span>
+          <p><strong>B.Eng. in Electrical Engineering and Automation</strong><br><strong>B.S. in Mathematics and Physics</strong><br>Tsinghua University, Beijing, China</p>
         </div>
       </div>
     </section>
 
     <section id="news">
       <div class="section-head">
-        <span class="section-number">03 · Updates</span>
         <h2>Recent News</h2>
       </div>
       <div class="section-body">
-        <div class="entry">
-          <span class="date">August 2026</span>
-          <p>Add your latest research, presentation, award, or milestone here.</p>
+        <!-- <div class="entry">
+          <span class="date">Aug 2026 – Present</span>
+          <p><strong>Research Assistant</strong></p>
         </div>
         <div class="entry">
-          <span class="date">May 2026</span>
-          <p>Add another recent update here.</p>
+          <span class="date">Oct 2025 – May 2026</span>
+          <p><strong>Undergraduate Thesis Student</strong></p>
         </div>
+        <div class="entry">
+          <span class="date">Jun 2025 – Sep 2025</span>
+          <p><strong>Summer Research Intern</strong></p>
+        </div>
+        <div class="entry">
+          <span class="date">Feb 2025 – Sep 2025</span>
+          <p><strong>Research Intern</strong></p>
+        </div>
+        <div class="entry">
+          <span class="date">Jun 2024 – Jan 2025</span>
+          <p><strong>Research Intern</strong></p>
+        </div>
+        <div class="entry">
+          <span class="date">Feb 2023 – Jan 2024</span>
+          <p><strong>Student Researcher</strong></p>
+        </div> -->
       </div>
     </section>
 
     <section id="publications">
       <div class="section-head">
-        <span class="section-number">04 · Research</span>
         <h2>Publications</h2>
       </div>
       <div class="section-body">
         <ol class="publication-list">
-          <li><strong>Your Name</strong>, Coauthor. <a href="#">“Title of your publication.”</a> <em>Journal or Conference</em>, 2026. <span class="tag">Paper</span></li>
-          <li>Coauthor, <strong>Your Name</strong>. <a href="#">“Another publication title.”</a> <em>Journal Name</em>, 2025. <span class="tag">Preprint</span></li>
+          <li><strong>Method and Apparatus for Calculating Aging in Dynamically Reconfigurable Battery Systems.</strong> Patent application, Tsinghua University, 2026. <span class="tag">Patent</span></li>
         </ol>
       </div>
     </section>
 
     <section id="honors">
       <div class="section-head">
-        <span class="section-number">05 · Recognition</span>
         <h2>Honors and Awards</h2>
       </div>
       <div class="section-body">
-        <div class="entry">
-          <span class="date">2026</span>
-          <p>Award or Scholarship Name</p>
-        </div>
-        <div class="entry">
-          <span class="date">2025</span>
-          <p>Honor or Competition Result</p>
-        </div>
+        <div class="entry"><span class="date">2024</span><p><strong>Comprehensive Scholarship</strong><br>Tsinghua University, Weiyang College</p></div>
+        <div class="entry"><span class="date">2023 &amp; 2024</span><p><strong>Sports Scholarships</strong><br>Tsinghua University</p></div>
       </div>
     </section>
 
-    <footer>Last updated August 2026 · Built with plain HTML and CSS</footer>
+    <footer>Last updated September 2026 · <a href="mailto:yiyuew@umich.edu">yiyuew@umich.edu</a></footer>
   </main>
 </body>
 </html>
